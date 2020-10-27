@@ -1,0 +1,5 @@
+env/
+__pychace__/
+/sass/
+/node_modules/
+db.sqlite3/
