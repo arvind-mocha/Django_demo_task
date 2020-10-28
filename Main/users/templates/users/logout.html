@@ -1,0 +1,15 @@
+{% extends 'Application/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="content-section container-fluid">
+    <h1 style="text-align: center;font-size:5rem;">Successfully Logged out of your account</h1>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}" style="font-size: 2rem;" class="ml-2">Login Again ?</a>
+        </small>
+    </div>
+</div>
+
+{% endblock content %}
