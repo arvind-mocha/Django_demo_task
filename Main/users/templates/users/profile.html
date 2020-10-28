@@ -1,0 +1,27 @@
+{% extends 'Application/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="content-section" style="justify-items: center;">
+        <div class="media">
+            <img class="rounded-circle account-img" style="height:150px;width:150px" src={{user.profile.images.url}} />
+            <div class="media-body">
+              <h2 class="account-heading">{{user.username}}</h2>
+              <p class="text-secondary">{{user.email}}</p>
+            </div>
+          </div>
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update your Profile?</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+                <a class="btn btn-outline-danger" type="button" href="{% url 'Duser' %}">Delete</a>
+            </div>
+          </form>
+    </div>
+{% endblock content %}

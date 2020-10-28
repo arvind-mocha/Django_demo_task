@@ -1,8 +1,11 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.http.response import HttpResponseGone
+from django.shortcuts import render,redirect
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.core.mail import BadHeaderError,send_mail
+from django.conf import settings
+from .models import Profile
 
 # Create your views here.
 def register(request):
@@ -12,7 +15,17 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request,f'Now you can Logi n {username}!')
+            to_email = form.cleaned_data.get('email')
+            messages.success(request,f'Now you can Login {username}!')
+            subject = f'Welcome To Happybrains'
+            message = 'A way to better future'
+            from_email = settings.EMAIL_HOST_USER
+            try:
+                send_mail(subject, message, from_email,[to_email],fail_silently= False)
+        
+            except BadHeaderError:
+                send_mail('unsuccessfull mail','BadheaderError', from_email, ['arvindarvind2210@gmail.com'],fail_silently= False)
+                return HttpResponseGone('Invalid header found.')
             return redirect('login')
         
     else:
