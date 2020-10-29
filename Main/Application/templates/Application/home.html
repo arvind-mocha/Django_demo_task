@@ -138,5 +138,20 @@
                 <a href="#" class="button button--green">Discover all Courses</a>
             </div>
         </section>
+
+        <section class="quries container-fluid">
+            <div class="heading" style="transform: translateY(7rem);">
+                <h2 class="heading-secondary">
+                    Stuck Somewhere ? Try Posting you quries
+                </h2>
+            </div>
+            <div class="questions">
+                <img src="{% static 'images/stuck.png' %}" alt="">
+                <form action="" class="send">
+                    <textarea name="msg" id="msg" cols="30" rows="15"></textarea>
+                    <button type="submit" class="button button--green" style="padding:1.5rem 20rem">Submit</button>
+                </form>
+            </div>
+        </section>
     </main>
 {% endblock content %}
