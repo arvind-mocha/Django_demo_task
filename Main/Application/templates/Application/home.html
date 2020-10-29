@@ -7,12 +7,16 @@
             <div class="land__page">
                 <h1>Worried about your future ?</h1>
                 <h3>We Guide you to success</h3>
-                <button>Join Us</button>
+                {% if user.is_authenticated %}
+                    <a class="join" href="#courses">Join Us</a>
+                {% else %}
+                    <a class="join" href="{% url 'login' %}">Join Us</a>
+                {% endif %}
             </div>
             <img src="{% static 'images/future.png' %}" class="land--img" alt="">
         </section>
 
-        <section class="section-tours" id="section-tours">
+        <section class="courses" id="courses">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary">
                     Courses We offer
@@ -21,7 +25,7 @@
 
             <div class="row">
                 <div class="col-1-of-3">
-                   <div class="card">
+                   <div class="card card1">
                        <div class="card__side card__side--front">
                             <div class="card__picture card__picture--1">
                                 &nbsp;
@@ -45,7 +49,11 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$297</p>
                                 </div>
-                                <a href="#popup" class="button button--white">Book now!</a>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'ml' %}" class="button button--white orange-btn">Book now!</a>
+                                {% else %}
+                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
+                                {% endif %}
                             </div>
                         </div>
                    </div>
@@ -53,7 +61,7 @@
 
 
                 <div class="col-1-of-3">
-                    <div class="card">
+                    <div class="card card2">
                         <div class="card__side card__side--front">
                             <div class="card__picture card__picture--2">
                                 &nbsp;
@@ -78,7 +86,11 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$297</p>
                                 </div>
-                                <a href="#popup" class="button button--white">Book now!</a>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'bga' %}" class="button button--white green-btn">Book now!</a>
+                                {% else %}
+                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -86,7 +98,7 @@
 
 
                 <div class="col-1-of-3">
-                    <div class="card">
+                    <div class="card card3">
                         <div class="card__side card__side--front">
                             <div class="card__picture card__picture--3">
                                 &nbsp;
@@ -111,7 +123,11 @@
                                     <p class="card__price-only">Only</p>
                                     <p class="card__price-value">$297</p>
                                 </div>
-                                <a href="#popup" class="button button--white">Book now!</a>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'wb' %}" class="button button--white blue-btn">Book now!</a>
+                                {% else %}
+                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

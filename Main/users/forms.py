@@ -7,11 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    age = forms.CharField(max_length=2)
     
     class Meta:
         model = User
-        fields = ['username','age','email','password1','password2']
+        fields = ['username','email','password1','password2']
         
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()

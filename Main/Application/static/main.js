@@ -6,3 +6,51 @@ if($('.alert').is(':visible')){
         $('.nav').show()
     },2000)
 }
+
+$(function(){
+    $('.land h3').css({'opacity':'0'})
+    $('.join').css({'opacity':'0'})
+    setTimeout(function (){
+        $('.land h3').css({ 'animation': 'moveInRight 2s','opacity':'1'})
+        $('.join').css({ 'animation': 'moveInRight 2s','opacity':'1'})
+    },1500)
+})
+
+
+$(function(){
+
+    $('.card1').css({'opacity':'0'})
+    $('.card2').css({'opacity':'0'})
+    $('.card3').css({'opacity':'0'})
+
+    var card1 = $('.card1').position().top
+    var card2 = $('.card2').position().top
+    var card3 = $('.card3').position().top
+
+    $(document).scroll(function () {
+        var nav = $(".navbar");
+        var scroll = $(this).scrollTop()
+
+        if (scroll >= card1-150){
+            $('.card1').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
+            $('.card2').css({'opacity':'1','animation':'moveMoreDownShow 2s'})
+            $('.card3').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
+        }
+    })
+})
+
+$(document).ready(function() {
+	var pathname = window.location.pathname;
+	$('.navbar-nav >  a[href="'+pathname+'"]').css({'border-bottom':'.3rem solid #F50057'});
+})
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        $(".navbar").css({'animation':'moveDownShow 1s','visibility': 'visible'});
+    }else{
+        $(".navbar").css({'animation':'moveUpHide 1s','visibility': 'hidden'});
+    }
+  prevScrollpos = currentScrollPos;
+}

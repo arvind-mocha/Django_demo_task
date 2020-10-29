@@ -9,7 +9,25 @@
             <div class="media-body">
               <h2 class="account-heading">{{user.username}}</h2>
               <p class="text-secondary">{{user.email}}</p>
+              {% if course == 'Machine Learning' %}
+                <div class="c-color" style='background-color:#ffb900;'>
+                  <h5>Machine Learning</h5>
+                </div>
+              {% elif course == 'Big Data Analysis' %}
+                <div class="c-color" style='background-color:#55c57a;'>
+                  <h5>Big Data Analytics</h5>
+                </div>
+              {% elif course == 'Web Development' %}
+                <div class="c-color" style='background-color:#2998ff;'>
+                  <h5>Web development</h5>
+                </div>
+              {% else %}
+                <div class="c-color" style='background-color:black'>
+                  <h5>No Course</h5>
+                </div>
+              {% endif %}
             </div>
+            
           </div>
           <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}

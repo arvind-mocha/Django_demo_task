@@ -37,10 +37,38 @@ body {
     opacity: 0;
     transform: translateY(-4rem); } }
 
+@keyframes moveUpShow {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveMoreUpShow {
+  0% {
+    opacity: 0;
+    transform: translateY(20rem); }
+  80% {
+    transform: translateY(-5rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
 @keyframes moveDownShow {
   0% {
     opacity: 0;
     transform: translateY(-4rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem); } }
+
+@keyframes moveMoreDownShow {
+  0% {
+    opacity: 0;
+    transform: translateY(-20rem); }
+  80% {
+    transform: translateY(5rem); }
   100% {
     opacity: 1;
     transform: translateY(0rem); } }
@@ -291,6 +319,23 @@ body {
 .btn {
   padding: .5rem 2.5rem; }
 
+.c-color {
+  height: 3rem;
+  width: fit-content;
+  border-radius: 20rem;
+  transition: all .5s;
+  border: .3rem solid white;
+  cursor: pointer; }
+  .c-color h5 {
+    transform: translateY(0.2rem);
+    transition: all 1s;
+    padding: .15rem 2rem;
+    color: white; }
+  .c-color:hover {
+    width: fit-content; }
+    .c-color:hover h5 {
+      padding: 0rem 4rem; }
+
 .text-muted {
   font-size: 1rem;
   width: fit-content; }
@@ -390,9 +435,9 @@ body {
       justify-self: center;
       font-size: 3rem;
       word-spacing: 1rem;
-      color: aquamarine;
-      animation: moveInRight 2s; }
-    .land__page button {
+      color: aquamarine; }
+    .land__page .join {
+      text-decoration: none;
       margin-top: 5rem;
       width: 10rem;
       justify-self: center;
@@ -406,12 +451,11 @@ body {
       box-shadow: -1rem 1rem 1.5rem rgba(0, 0, 0, 0.3);
       border: none;
       outline: none;
-      animation: moveInRight 2s;
       transition: all .3s; }
-      .land__page button:hover {
+      .land__page .join:hover {
         transform: translateY(0.5rem) translateX(-0.5rem);
         box-shadow: -0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.3); }
-      .land__page button:active {
+      .land__page .join:active {
         transform: translateY(1rem) translateX(-1rem);
         box-shadow: none; }
   .land--img {
@@ -438,10 +482,10 @@ body {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
-.section-tours {
+.courses {
   padding: 5rem 0 15rem 0; }
   @media only screen and (max-width: 56.25em) {
-    .section-tours {
+    .courses {
       padding: 20rem 0 10rem 0; } }
 
 .u-center-text {

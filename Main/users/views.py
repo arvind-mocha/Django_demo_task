@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import BadHeaderError,send_mail
 from django.conf import settings
-from .models import Profile
+from .models import courses
 
 # Create your views here.
 def register(request):
@@ -20,12 +20,12 @@ def register(request):
             subject = f'Welcome To Happybrains'
             message = 'A way to better future'
             from_email = settings.EMAIL_HOST_USER
-            try:
-                send_mail(subject, message, from_email,[to_email],fail_silently= False)
+            # try:
+            #     send_mail(subject, message, from_email,[to_email],fail_silently= False)
         
-            except BadHeaderError:
-                send_mail('unsuccessfull mail','BadheaderError', from_email, ['arvindarvind2210@gmail.com'],fail_silently= False)
-                return HttpResponseGone('Invalid header found.')
+            # except BadHeaderError:
+            #     send_mail('unsuccessfull mail','BadheaderError', from_email, ['arvindarvind2210@gmail.com'],fail_silently= False)
+            #     return HttpResponseGone('Invalid header found.')
             return redirect('login')
         
     else:
@@ -52,9 +52,16 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-     
+
+    current_user = request.user
+    
+    try:
+        course = f'{courses.objects.filter(student=current_user)[0]}'
+    except IndexError:
+        course = None
     
     context = {
+        'course':course,
         'u_form':u_form,
         'p_form':p_form
     }
@@ -71,3 +78,27 @@ def Duser(request):
         return redirect('home')
             
     return render(request,'users/Duser.html')
+
+def ml(request):
+    if request.method == 'POST':
+        current_user = request.user
+        course = courses(course='Machine Learning',student=current_user)
+        course.save()
+        return redirect('profile')
+    return render(request,'users/ml.html')
+
+def bga(request):
+    if request.method == 'POST':
+        current_user = request.user
+        course = courses(course='Big Data Analysis',student=current_user)
+        course.save()
+        return redirect('profile')
+    return render(request,'users/bga.html')
+
+def wb(request):     
+    if request.method == 'POST':
+        current_user = request.user
+        course = courses(course='Web Development',student=current_user)
+        course.save()
+        return redirect('profile')
+    return render(request,'users/wb.html')
