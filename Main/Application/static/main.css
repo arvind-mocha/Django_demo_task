@@ -269,7 +269,9 @@ body {
 
 @media only screen and (max-width: 56.25em) {
   .card {
-    border-radius: 0rem; }
+    border-radius: 0rem;
+    animation: none !important;
+    opacity: 1 !important; }
     .card__side {
       border-radius: 0rem; } }
 
