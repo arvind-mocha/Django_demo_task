@@ -146,11 +146,26 @@
                 </h2>
             </div>
             <div class="questions">
-                <img src="{% static 'images/stuck.png' %}" alt="">
-                <form action="" class="send">
-                    <textarea name="msg" id="msg" cols="30" rows="15"></textarea>
-                    <button type="submit" class="button button--green" style="padding:1.5rem 20rem">Submit</button>
-                </form>
+                <img class="stuck" src="{% static 'images/stuck.png' %}" alt="">
+                <div class="display">
+                    <div class="display__screen">
+                        {% for q in questions %}
+                            <div class="display__screen--box">
+                                <p>{{ q.question }}</p>
+                                <h5 class="float-right">{{ q.time }}</h5>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <form action="" id="message" class="send" method="POST">
+                        {% csrf_token %}
+                        <textarea name="msg" id="msg" cols="30" rows="2" placeholder="Type your question"></textarea>
+                        {% if user.is_authenticated %}
+                            <button type="submit" class="button button--green" style="padding:1.5rem 20rem">Submit</button>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="button button--green" style="padding:1.5rem 20rem">Submit</a>
+                        {% endif %}
+                    </form>
+                </div>
             </div>
         </section>
     </main>

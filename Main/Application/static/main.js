@@ -22,19 +22,22 @@ $(function(){
     $('.card1').css({'opacity':'0'})
     $('.card2').css({'opacity':'0'})
     $('.card3').css({'opacity':'0'})
+    $('.stuck').css({'opacity':'0'})
 
-    var card1 = $('.card1').position().top
-    var card2 = $('.card2').position().top
-    var card3 = $('.card3').position().top
+    var card = $('.card').position().top
+    var question = $('.questions').position().top
 
     $(document).scroll(function () {
-        var nav = $(".navbar");
         var scroll = $(this).scrollTop()
 
-        if (scroll >= card1-150){
+        if (scroll >= card-150){
             $('.card1').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
             $('.card2').css({'opacity':'1','animation':'moveMoreDownShow 2s'})
             $('.card3').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
+        }
+
+        if(scroll >= question-100){
+            $('.stuck').css({'opacity':'1','animation':'moveRightShow 2s'})
         }
     })
 })
@@ -54,3 +57,20 @@ window.onscroll = function() {
     }
   prevScrollpos = currentScrollPos;
 }
+
+$(document).on('submit','#message',function(e){
+    e.preventDefault();
+
+    $.ajax({
+        type: 'POST',
+        url: '',
+        data:{
+            msg : $('#msg').val(),
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function (){
+            $("#message")[0].reset();
+            window.location.reload(); 
+        }
+    })
+})

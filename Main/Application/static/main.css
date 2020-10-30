@@ -21,11 +21,6 @@ html {
     html {
       font-size: 75%; } }
 
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-  backface-visibility: hidden; }
-
 body {
   box-sizing: border-box; }
 
@@ -93,6 +88,14 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
+@keyframes moveRightShow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 .button, .button:link, .button:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -148,7 +151,8 @@ body {
   height: 52rem;
   backface-visibility: hidden;
   border: none;
-  border-radius: 25rem; }
+  border-radius: 25rem;
+  width: 100%; }
   .card__side {
     height: 52rem;
     border: none;
@@ -512,27 +516,68 @@ body {
   align-items: center;
   align-content: center; }
   .questions img {
-    height: 60%;
+    height: 70%;
     width: 80%;
     justify-self: center;
     grid-row: 1 / 3; }
 
-.send {
-  transform: translateY(5rem);
+.display {
+  width: 90%;
+  height: 80vh;
   display: grid;
-  justify-items: center;
-  align-items: center;
+  grid-template-rows: 70% 15%;
   row-gap: 2rem; }
-  .send textarea {
-    border: solid .5rem;
+  .display__screen {
+    justify-self: center;
+    align-self: end;
+    height: 85%;
+    width: 90%;
+    border: solid .2rem;
     border-image-slice: 1;
     border-image-source: linear-gradient(to left, #5643fa, #d53a9d);
-    width: 90%;
-    font-size: 1.5rem;
-    outline: none;
-    box-shadow: 0rem 0rem 2rem #5643fa; }
-  .send label {
-    font-size: 2rem; }
+    background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.9), rgba(40, 180, 133, 0.9));
+    overflow-y: scroll;
+    float: left;
+    font-size: 3rem;
+    box-shadow: 0rem 0rem 2rem #5643fa;
+    display: grid;
+    row-gap: 3rem;
+    color: white;
+    grid-auto-rows: 30%; }
+    .display__screen--box {
+      margin-top: 2rem;
+      height: fit-content;
+      width: 40%;
+      margin-left: 2rem;
+      display: grid;
+      margin-bottom: 2rem;
+      border: solid 0.4rem rgba(255, 255, 255, 0.5); }
+      .display__screen--box p {
+        width: fit-content;
+        font-size: 2rem;
+        letter-spacing: 0rem;
+        word-spacing: .5rem;
+        font-family: 'Lobster', cursive;
+        justify-self: center;
+        text-align: center;
+        opacity: .5; }
+      .display__screen--box h5 {
+        justify-self: end; }
+  .display .send {
+    transform: translateY(5rem);
+    display: grid;
+    justify-items: center;
+    align-items: end;
+    row-gap: 2rem; }
+    .display .send textarea {
+      border: solid .2rem;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to left, #5643fa, #d53a9d);
+      width: 90%;
+      font-size: 1.5rem;
+      outline: none;
+      box-shadow: 0rem 0rem 2rem #5643fa;
+      overflow: hidden; }
 
 .u-center-text {
   text-align: center !important; }
