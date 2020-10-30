@@ -160,13 +160,27 @@
                         {% csrf_token %}
                         <textarea name="msg" id="msg" cols="30" rows="2" placeholder="Type your question"></textarea>
                         {% if user.is_authenticated %}
-                            <button type="submit" class="button button--green" style="padding:1.5rem 20rem">Submit</button>
+                            <button type="submit" class="button button--green" style="padding:1.5rem 20%">Submit</button>
                         {% else %}
-                            <a href="{% url 'login' %}" class="button button--green" style="padding:1.5rem 20rem">Submit</a>
+                            <a href="{% url 'login' %}" class="button button--green" style="padding:1.5rem 20%">Submit</a>
                         {% endif %}
                     </form>
                 </div>
             </div>
         </section>
+    
+        <section class="video container-fluid">
+            <div class="heading vidoe__heading" style="transform: translateY(7rem);">
+                <h2 class="heading-secondary">
+                    Try Attending our demo clases
+                </h2>
+            </div>
+            <div class="row video__box justify-content-between">
+                {% for v in video %}
+                    <iframe class="col-lg-4 col-md-6 col-sm-12" src="{{v.link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% endfor %}
+            </div>
+        </section>
+       
     </main>
 {% endblock content %}

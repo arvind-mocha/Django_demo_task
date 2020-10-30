@@ -22,10 +22,8 @@ $(function(){
     $('.card1').css({'opacity':'0'})
     $('.card2').css({'opacity':'0'})
     $('.card3').css({'opacity':'0'})
-    $('.stuck').css({'opacity':'0'})
-
+    
     var card = $('.card').position().top
-    var question = $('.questions').position().top
 
     $(document).scroll(function () {
         var scroll = $(this).scrollTop()
@@ -34,10 +32,6 @@ $(function(){
             $('.card1').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
             $('.card2').css({'opacity':'1','animation':'moveMoreDownShow 2s'})
             $('.card3').css({'opacity':'1','animation':'moveMoreUpShow 2s'})
-        }
-
-        if(scroll >= question-100){
-            $('.stuck').css({'opacity':'1','animation':'moveRightShow 2s'})
         }
     })
 })

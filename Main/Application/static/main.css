@@ -35,10 +35,10 @@ body {
 @keyframes moveUpShow {
   0% {
     opacity: 0;
-    transform: translateY(4rem); }
+    transform: translateY(8rem); }
   100% {
     opacity: 1;
-    transform: translateX(0rem); } }
+    transform: translateY(0rem); } }
 
 @keyframes moveMoreUpShow {
   0% {
@@ -110,7 +110,8 @@ body {
 
 .button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  color: black; }
   .button:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0; }
@@ -122,13 +123,15 @@ body {
 
 .button--white {
   background-color: #fff;
-  color: #777; }
+  color: #777;
+  text-decoration: none; }
   .button--white::after {
     background-color: #fff; }
 
 .button--green {
   background-color: #55c57a;
-  color: #fff; }
+  color: #fff;
+  text-decoration: none; }
   .button--green::after {
     background-color: #55c57a; }
 
@@ -514,7 +517,8 @@ body {
   grid-template-columns: 30% 70%;
   grid-template-rows: 100%;
   align-items: center;
-  align-content: center; }
+  align-content: center;
+  justify-items: center; }
   .questions img {
     height: 70%;
     width: 80%;
@@ -579,6 +583,20 @@ body {
       box-shadow: 0rem 0rem 2rem #5643fa;
       overflow: hidden; }
 
+.video {
+  margin: 10rem auto;
+  width: 100%; }
+  .video__box {
+    margin: 10rem auto;
+    width: 100vw; }
+    .video__box iframe {
+      position: relative;
+      margin: 7rem 6rem;
+      transform: scale(1.4, 1.4);
+      width: 100%;
+      outline: #ebebeb double 1rem;
+      outline-offset: 1rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -608,6 +626,11 @@ body {
     transform: translateX(-4rem); } }
 
 @media only screen and (max-width: 56.25em) {
+  .video__box {
+    margin: 6rem auto; }
+    .video__box iframe {
+      margin: 7rem auto;
+      transform: scale(1, 1); }
   .questions {
     grid-template-columns: 100%; }
     .questions img {
@@ -624,5 +647,7 @@ body {
     display: none; } }
 
 @media only screen and (max-width: 37.5em) {
+  .display__screen--box {
+    width: 60%; }
   .send button {
     padding: 1.5rem 10rem !important; } }
