@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from .models import quries,videos
+from .models import quries
 from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
+        return render(request,'Application/home.html')
+    
+def doubts(request):
     current_user = request.user
     
     if request.method == 'POST':
@@ -11,7 +14,6 @@ def home(request):
         q = quries(question=query,author=current_user)
         q.save()
     
-    video = list(videos.objects.all())
     
     if current_user.is_authenticated  :
         try:
@@ -19,15 +21,13 @@ def home(request):
             questions = quries.objects.filter(author=user)
             q = list(questions)
         except IndexError:
-            return render(request,'Application/home.html')
+            return render(request,'Application/doubts.html')
         
         context = {
-            'questions': q,
-            'video': video
+            'questions': q
         }
-        return render(request,'Application/home.html',context)
+        return render(request,'Application/doubts.html',context)
     
-    else:
-        return render(request,'Application/home.html')
+    return render(request,'Application/doubts.html')
         
    

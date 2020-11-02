@@ -1,10 +1,7 @@
-from django.http.response import HttpResponseGone
 from django.shortcuts import render,redirect
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.mail import BadHeaderError,send_mail
-from django.conf import settings
 from .models import courses
 
 # Create your views here.
@@ -17,15 +14,6 @@ def register(request):
             username = form.cleaned_data.get('username')
             to_email = form.cleaned_data.get('email')
             messages.success(request,f'Now you can Login {username}!')
-            subject = f'Welcome To Happybrains'
-            message = 'A way to better future'
-            from_email = settings.EMAIL_HOST_USER
-            # try:
-            #     send_mail(subject, message, from_email,[to_email],fail_silently= False)
-        
-            # except BadHeaderError:
-            #     send_mail('unsuccessfull mail','BadheaderError', from_email, ['arvindarvind2210@gmail.com'],fail_silently= False)
-            #     return HttpResponseGone('Invalid header found.')
             return redirect('login')
         
     else:
@@ -78,27 +66,3 @@ def Duser(request):
         return redirect('home')
             
     return render(request,'users/Duser.html')
-
-def ml(request):
-    if request.method == 'POST':
-        current_user = request.user
-        course = courses(course='Machine Learning',student=current_user)
-        course.save()
-        return redirect('profile')
-    return render(request,'users/ml.html')
-
-def bga(request):
-    if request.method == 'POST':
-        current_user = request.user
-        course = courses(course='Big Data Analysis',student=current_user)
-        course.save()
-        return redirect('profile')
-    return render(request,'users/bga.html')
-
-def wb(request):     
-    if request.method == 'POST':
-        current_user = request.user
-        course = courses(course='Web Development',student=current_user)
-        course.save()
-        return redirect('profile')
-    return render(request,'users/wb.html')

@@ -3,184 +3,30 @@
 
 {% block content %}
     <main>
-        <section class="land container-fluid">
-            <div class="land__page">
-                <h1>Worried about your future ?</h1>
-                <h3>We Guide you to success</h3>
-                {% if user.is_authenticated %}
-                    <a class="join" href="#courses">Join Us</a>
-                {% else %}
-                    <a class="join" href="{% url 'login' %}">Join Us</a>
-                {% endif %}
-            </div>
-            <img src="{% static 'images/future.png' %}" class="land--img" alt="">
-        </section>
-
-        <section class="courses" id="courses">
-            <div class="u-center-text u-margin-bottom-big">
-                <h2 class="heading-secondary">
-                    Courses We offer
-                </h2>
-            </div>
-
-            <div class="row">
-                <div class="col-1-of-3">
-                   <div class="card card1">
-                       <div class="card__side card__side--front">
-                            <div class="card__picture card__picture--1">
-                                &nbsp;
-                            </div>
-                            <h4 class="card__heading">
-                                <span class="card__heading-span card__heading-span--1">Machine Learning</span>
-                            </h4>
-                            <div class="card__details">
-                                <ul>
-                                    <li>200+ hours</li>
-                                    <li>20+ live classes</li>
-                                    <li>10+ offline sessions</li>
-                                    <li>Course Materials</li>
-                                    <li>Certificate</li>
-                                </ul>
-                            </div>
-                       </div>
-                       <div class="card__side card__side--back card__side--back-1">
-                            <div class="card__cta">
-                                <div class="card__price-box">
-                                    <p class="card__price-only">Only</p>
-                                    <p class="card__price-value">$297</p>
-                                </div>
-                                {% if user.is_authenticated %}
-                                    <a href="{% url 'ml' %}" class="button button--white orange-btn">Book now!</a>
-                                {% else %}
-                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                   </div>
-                </div>
-
-
-                <div class="col-1-of-3">
-                    <div class="card card2">
-                        <div class="card__side card__side--front">
-                            <div class="card__picture card__picture--2">
-                                &nbsp;
-                            </div>
-                            <h4 class="card__heading">
-                                <span class="card__heading-span card__heading-span--2">Big Data Analytics</span>
-                            </h4>
-                            <div class="card__details">
-                                <ul>
-                                    <li>200+ hours</li>
-                                    <li>20+ live classes</li>
-                                    <li>10+ offline sessions</li>
-                                    <li>Course Materials</li>
-                                    <li>Certificate</li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div class="card__side card__side--back card__side--back-2">
-                            <div class="card__cta">
-                                <div class="card__price-box">
-                                    <p class="card__price-only">Only</p>
-                                    <p class="card__price-value">$297</p>
-                                </div>
-                                {% if user.is_authenticated %}
-                                    <a href="{% url 'bga' %}" class="button button--white green-btn">Book now!</a>
-                                {% else %}
-                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-1-of-3">
-                    <div class="card card3">
-                        <div class="card__side card__side--front">
-                            <div class="card__picture card__picture--3">
-                                &nbsp;
-                            </div>
-                            <h4 class="card__heading">
-                                <span class="card__heading-span card__heading-span--3">Web development</span>
-                            </h4>
-                            <div class="card__details">
-                                <ul>
-                                    <li>200+ hours</li>
-                                    <li>20+ live classes</li>
-                                    <li>10+ offline sessions</li>
-                                    <li>Course Materials</li>
-                                    <li>Certificate</li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div class="card__side card__side--back card__side--back-3">
-                            <div class="card__cta">
-                                <div class="card__price-box">
-                                    <p class="card__price-only">Only</p>
-                                    <p class="card__price-value">$297</p>
-                                </div>
-                                {% if user.is_authenticated %}
-                                    <a href="{% url 'wb' %}" class="button button--white blue-btn">Book now!</a>
-                                {% else %}
-                                    <a href="{% url 'register' %}" class="button button--white">Book now!</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
+        <section class="landing container-fluid">
+            <div class="landing__content">
+                <div class="landing__content--elements">
+                    <h2 class="landing__content--elements-text">Clarify your <span>doubts</span> in your language</h2>
+                    <a class="landing__content--elements-btn" href="{% url 'doubts' %}"><img src="{% static 'images/down.png' %}" alt=""> &nbsp; Ask your doubts now</a>
                 </div>
             </div>
-
-            <div class="u-center-text u-margin-top-huge">
-                <a href="#" class="button button--green">Discover all Courses</a>
-            </div>
-        </section>
-
-        <section class="quries container-fluid">
-            <div class="heading" style="transform: translateY(7rem);">
-                <h2 class="heading-secondary">
-                    Stuck Somewhere ? Try Posting you quries
-                </h2>
-            </div>
-            <div class="questions">
-                <img class="stuck" src="{% static 'images/stuck.png' %}" alt="">
-                <div class="display">
-                    <div class="display__screen">
-                        {% for q in questions %}
-                            <div class="display__screen--box">
-                                <p>{{ q.question }}</p>
-                                <h5 class="float-right">{{ q.time }}</h5>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <form action="" id="message" class="send" method="POST">
-                        {% csrf_token %}
-                        <textarea name="msg" id="msg" cols="30" rows="2" placeholder="Type your question"></textarea>
-                        {% if user.is_authenticated %}
-                            <button type="submit" class="button button--green" style="padding:1.5rem 20%">Submit</button>
-                        {% else %}
-                            <a href="{% url 'login' %}" class="button button--green" style="padding:1.5rem 20%">Submit</a>
-                        {% endif %}
-                    </form>
+            <div class="landing__video">
+                <img class="landing__video--img1" src="{% static 'images/ellipse.png' %}" alt="">
+                <img class="landing__video--img2" src="{% static 'images/ellipse.png' %}" alt="">
+                <div class="landing__video--display">
+                    <img class="landing__video--display-img" src="{% static 'images/play.png' %}" alt="">
+                    <video id="kids">
+                        <source src='{% static "video/kids.mp4" %}' type="video/mp4">
+                        Your browser does not support this video format 
+                    </video>
                 </div>
             </div>
-        </section>
-    
-        <section class="video container-fluid">
-            <div class="heading vidoe__heading" style="transform: translateY(7rem);">
-                <h2 class="heading-secondary">
-                    Try Attending our demo clases
-                </h2>
-            </div>
-            <div class="row video__box justify-content-between">
-                {% for v in video %}
-                    <iframe class="col-lg-4 col-md-6 col-sm-12" src="{{v.link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                {% endfor %}
+            <div class="chips">
+                <div class="chips__items chips__1"></div>
+                <div class="chips__items chips__2"></div>
+                <div class="chips__items chips__3"></div>
+                <div class="chips__items chips__4"></div>
             </div>
         </section>
-       
     </main>
 {% endblock content %}

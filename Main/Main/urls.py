@@ -13,9 +13,6 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path('profile/',user_views.profile,name='profile'),
     path('Delete_Current_User/',user_views.Duser,name='Duser'),
-    path('Buy_course_1/',user_views.ml,name='ml'),
-    path('Buy_course_2/',user_views.bga,name='bga'),
-    path('Buy_course_3/',user_views.wb,name='wb'),
 ]
 
 

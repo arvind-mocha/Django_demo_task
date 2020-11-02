@@ -11,9 +11,3 @@ class quries(models.Model):
     def __str__(self):
         return f'{self.author} questions'
     
-class videos(models.Model):
-    link = models.CharField(max_length=3000,primary_key=True)
-    
-    def __str__(self):
-        return f'{self.link}'
-    
