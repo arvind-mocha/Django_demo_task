@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import courses
 
 # Create your views here.
 def register(request):
@@ -43,13 +42,8 @@ def profile(request):
 
     current_user = request.user
     
-    try:
-        course = f'{courses.objects.filter(student=current_user)[0]}'
-    except IndexError:
-        course = None
     
     context = {
-        'course':course,
         'u_form':u_form,
         'p_form':p_form
     }
