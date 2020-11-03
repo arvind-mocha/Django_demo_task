@@ -11,8 +11,8 @@
                 </div>
             </div>
             <div class="landing__video">
-                <img class="landing__video--img1" src="{% static 'images/ellipse.png' %}" alt="">
-                <img class="landing__video--img2" src="{% static 'images/ellipse.png' %}" alt="">
+                <!-- <img class="landing__video--img1" src="{% static 'images/ellipse.png' %}" alt="">
+                <img class="landing__video--img2" src="{% static 'images/ellipse.png' %}" alt=""> -->
                 <div class="landing__video--display">
                     <img class="landing__video--display-img" src="{% static 'images/play.png' %}" alt="">
                     <video id="kids">
@@ -22,11 +22,81 @@
                 </div>
             </div>
             <div class="chips">
-                <div class="chips__items chips__1"></div>
-                <div class="chips__items chips__2"></div>
-                <div class="chips__items chips__3"></div>
-                <div class="chips__items chips__4"></div>
+                <div class="chips__items chips__1">
+                    <div class="chips__items--img">
+                        <img src="{% static 'images/note.png' %}" alt="">
+                    </div>
+                    <h4>40,000+ Doubts cleared</h4>
+                </div>
+                <div class="chips__items chips__2">
+                    <div class="chips__items--img">
+                        <img src="{% static 'images/laptop.png' %}" alt="">
+                    </div>
+                    <h4>20+ state boards</h4>
+                </div>
+                <div class="chips__items chips__3">
+                    <div class="chips__items--img">
+                        <img src="{% static 'images/certificate.png' %}" alt="">
+                    </div>
+                    <h4>1,000,000+ video lectures</h4>
+                </div>
+                <div class="chips__items chips__4">
+                    <div class="chips__items--img">
+                        <img src="{% static 'images/monitor.png' %}" alt="">
+                    </div>
+                    <h4>5000+ books covered</h4>
+                </div>
             </div>
         </section>
+        <section class="books container-fluid">
+            <div>
+                <h1 class="books__heading"><span>Free access</span> to 5000+ books</h1>
+                <p class="books__para">Get access to virtual library of 5000+ text books</p>
+                <p class="books__para"> and reference books of various stateboards and competitive exams.</p>
+            </div>
+            <div class="bbox">
+                <a href="#" class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>HC Verma</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>NCERT</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>KC Sinha</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>Errorless</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>Tata McGraw Hill</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>RD Sharma</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>Pradeep's</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>SL Arora</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>Maths</h3>
+                </a>
+                <a href='#' class="bbox__items">
+                    <img src="{% static 'Images/certificate.png' %}" alt="">
+                    <h3>Maths</h3>
+                </a>
+            </div>
+        </section>
+        
     </main>
 {% endblock content %}
