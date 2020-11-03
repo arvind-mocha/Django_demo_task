@@ -24,6 +24,44 @@ html {
 body {
   box-sizing: border-box; }
 
+@keyframes moveLeftCenterShow {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  70% {
+    opacity: .7;
+    transform: translateX(-3rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveRightCenterShow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  70% {
+    opacity: .7;
+    transform: translateX(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveUpShow {
+  0% {
+    opacity: 0;
+    transform: translateY(6rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveDownShow {
+  0% {
+    opacity: 0;
+    transform: translateY(-6rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem); } }
+
 .books {
   margin-top: 5rem;
   height: 75vh;
@@ -141,7 +179,19 @@ body {
     margin-bottom: 3rem; }
   .bbox {
     row-gap: 2.5rem;
-    height: fit-content; } }
+    height: fit-content; }
+  #books .books__text {
+    animation: none !important;
+    opacity: 1 !important; }
+  #books .bbox {
+    animation: none !important;
+    opacity: 1 !important; }
+  #boards .books__text {
+    animation: none !important;
+    opacity: 1 !important; }
+  #boards .bbox {
+    animation: none !important;
+    opacity: 1 !important; } }
 
 @media only screen and (max-width: 29em) {
   .bbox__items {
@@ -575,7 +625,8 @@ body {
         color: rgba(0, 0, 0, 0.6);
         font-size: 5rem;
         width: 90%;
-        word-spacing: 1rem; }
+        word-spacing: 1rem;
+        animation: moveUpShow 2s; }
         .landing__content--elements-text span {
           color: rgba(41, 152, 255, 0.8); }
       .landing__content--elements-btn {
@@ -589,6 +640,7 @@ body {
         color: white;
         margin-top: 2rem;
         box-shadow: -1rem 1rem 1rem rgba(0, 0, 0, 0.4);
+        animation: moveUpShow 2s;
         transition: all .3s; }
         .landing__content--elements-btn img {
           width: 2rem;
@@ -617,7 +669,8 @@ body {
       cursor: pointer;
       position: relative;
       border-radius: 5rem;
-      background: linear-gradient(to left bottom, #d53a9d, #2998ff); }
+      background: linear-gradient(to left bottom, #d53a9d, #2998ff);
+      animation: moveDownShow 2s; }
       .landing__video--display-img {
         position: absolute;
         z-index: 1;
@@ -665,7 +718,7 @@ body {
 
 @media only screen and (max-width: 56.25em) {
   .landing {
-    height: 130vh;
+    height: 145vh;
     grid-template-rows: 40% 40% 20%; }
     .landing__video {
       align-self: end; }

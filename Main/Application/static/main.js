@@ -57,3 +57,30 @@ $('.study__resource--box-btn').hover(function () {
         $('.study__resource--box-img').css({'filter':'blur(0rem) brightness(100%)'})        
     }
 );
+
+$(function(){
+
+    $('#books .books__text').css({'opacity':'0'})
+    $('#books .bbox').css({'opacity':'0'})
+    $('#boards .books__text').css({'opacity':'0'})
+    $('#boards .bbox').css({'opacity':'0'})
+
+    var books = $('#books').position().top
+    var board = $('#boards').position().top
+
+    $(document).scroll(function () {
+        var scroll = $(this).scrollTop()
+
+        //-----    PROJECTS    -----//
+
+        if (scroll >= books-150){
+            $('#books .books__text').css({'opacity':'1','animation':'moveRightCenterShow 2s'})
+            $('#books .bbox').css({'opacity':'1','animation':'moveLeftCenterShow 2s'})
+        }
+
+        if (scroll >= board-150){
+            $('#boards .books__text').css({'opacity':'1','animation':'moveRightCenterShow 2s'})
+            $('#boards .bbox').css({'opacity':'1','animation':'moveLeftCenterShow 2s'})
+        }
+    })
+})
