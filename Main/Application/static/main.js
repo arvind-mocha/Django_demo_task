@@ -28,7 +28,7 @@ window.onscroll = function() {
 
 $(document).ready(function() {
 	var pathname = window.location.pathname;
-	$('.navbar-nav >  a[href="'+pathname+'"]').css({'border-bottom':'.3rem solid #F50057'});
+	$('.navbar-nav > li >  a[href="'+pathname+'"]').css({'border-bottom':'.3rem solid #F50057'});
 })
 
 
@@ -48,3 +48,12 @@ $(document).on('submit','#message',function(e){
         }
     })
 })
+
+$('.study__resource--box-btn').hover(function () {
+        $('.study__resource--box-down').css({'opacity':'1','top':'48%'})        
+        $('.study__resource--box-img').css({'filter':'blur(.3rem) brightness(80%)'})        
+    }, function () {
+        $('.study__resource--box-down').css({'opacity':'0','top':'35%'})    
+        $('.study__resource--box-img').css({'filter':'blur(0rem) brightness(100%)'})        
+    }
+);

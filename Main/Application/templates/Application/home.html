@@ -55,46 +55,89 @@
                 <p class="books__para"> and reference books of various stateboards and competitive exams.</p>
             </div>
             <div class="bbox">
-                <a href="#" class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>HC Verma</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>NCERT</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>KC Sinha</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>Errorless</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>Tata McGraw Hill</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>RD Sharma</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>Pradeep's</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>SL Arora</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>Maths</h3>
-                </a>
-                <a href='#' class="bbox__items">
-                    <img src="{% static 'Images/certificate.png' %}" alt="">
-                    <h3>Maths</h3>
-                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'books' %}" class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>HC Verma</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>NCERT</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>KC Sinha</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Errorless</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Tata McGraw Hill</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>RD Sharma</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Pradeep's</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>SL Arora</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Maths</h3>
+                    </a>
+                    <a href='{% url "books" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Maths</h3>
+                    </a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>HC Verma</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>NCERT</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>KC Sinha</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Errorless</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Tata McGraw Hill</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>RD Sharma</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Pradeep's</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>SL Arora</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Maths</h3>
+                    </a>
+                    <a href='{% url "login" %}' class="bbox__items">
+                        <img src="{% static 'Images/certificate.png' %}" alt="">
+                        <h3>Maths</h3>
+                    </a>
+                {% endif %}
             </div>
         </section>
         

@@ -1,0 +1,17 @@
+{% extends 'Application/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="study">
+        <h1 class="study__heading"><span>Free Books</span> you can download</h1>
+        <div class="study__resource">
+            {% for images in books %}
+            <div class="study__resource--box">
+                <img class="study__resource--box-img" src="{{images.image.url}}" alt="">
+                <a href="{{images.files.url}}" download="{{images.files.url}}" class="study__resource--box-btn">Download</a>
+                <img class="study__resource--box-down" src="{% static 'Images/download.png' %}" alt="">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

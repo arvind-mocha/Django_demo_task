@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import quries
+from django.views.generic import ListView
+from .models import quries,books
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -29,5 +30,11 @@ def doubts(request):
         return render(request,'Application/doubts.html',context)
     
     return render(request,'Application/doubts.html')
+
+class BooksListView(ListView):  
+    model = books
+    template_name = 'Application/books.html'  
+    context_object_name = 'books'
+    ordering = ['-date']  
         
    

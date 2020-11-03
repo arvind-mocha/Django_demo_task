@@ -11,3 +11,12 @@ class quries(models.Model):
     def __str__(self):
         return f'{self.author} questions'
     
+class books(models.Model):
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    title = models.CharField(max_length=100,primary_key=True)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='book_pics')
+    files = models.FileField(upload_to='books_files')
+    
+    def __str__(self):
+        return f'{self.title} is a book'
